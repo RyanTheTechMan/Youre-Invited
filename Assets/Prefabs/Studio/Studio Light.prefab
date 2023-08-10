@@ -509,9 +509,9 @@ Light:
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 118.04918
+  m_Intensity: 192.5995
   m_Range: 25
-  m_SpotAngle: 86.16713
+  m_SpotAngle: 160
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -574,10 +574,10 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 200
+  m_Intensity: 1000
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 8
-  m_InnerSpotPercent: 77.06528
+  m_InnerSpotPercent: 31.25
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
   m_VolumetricDimmer: 1
