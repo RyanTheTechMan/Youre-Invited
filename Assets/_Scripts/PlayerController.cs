@@ -6,13 +6,9 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     /*
-     * Move states: Sprinting, Running, Walking, Crouching, Crawling, Idle
-     * Sprinting: Moving at max speed
-     * Running: Moving at normal speed
-     * Walking: Moving at half speed
-     * Crouching: Moving at 1/3 speed
-     * Crawling: Moving at 1/5 speed
-     * Idle: Not moving
+     * Move states
+     *
+     * Defines the different move states of the player.
      */
     public enum MOVE_STATE { SPRINTING, RUNNING, WALKING, CROUCHING, CRAWLING, IDLE }
 
@@ -20,41 +16,39 @@ public class PlayerController : MonoBehaviour
      * Input modes: Toggle, Hold
      * Toggle: Press once to toggle on, press again to toggle off
      * Hold: Press and hold to keep on, release to turn off
-     *
-     * Example: Sprinting
-     * Toggle: Press once to start sprinting, press again to stop sprinting
-     * Hold: Press and hold to sprint, release to stop sprinting
      */
     public enum INPUT_MODE { TOGGLE, HOLD }
 
-    private Rigidbody rb;
-    private PlayerInput playerInput;
+    private Rigidbody _rb;
+    private PlayerInput _playerInput;
 
     [Header("Player Settings")]
-    public float moveSpeed = 5f;
-    public float jumpForce = 5f;
-    public float lookSensitivity = 0.1f;
+    public float moveSpeed = 5f;         // Base speed for player movement.
+    public float jumpForce = 5f;         // Force applied when player jumps.
+    public float lookSensitivity = 0.1f; // Sensitivity for camera movement.
 
     [Header("States & Events")]
-    public MOVE_STATE moveState = MOVE_STATE.RUNNING;
-    public Func<bool> PreInteract;
-    public Action PostInteract;
-    public Func<bool> PreInteractSecondary;
-    public Action PostInteractSecondary;
+    public MOVE_STATE moveState = MOVE_STATE.RUNNING; // Default movement state.
+
+    // Interaction delegates.
+    public Func<bool> PreInteract;           // Checks if primary interaction is allowed.
+    public Action PostInteract;              // Primary interaction method.
+    public Func<bool> PreInteractSecondary;  // Checks if secondary interaction is allowed.
+    public Action PostInteractSecondary;     // Secondary interaction method.
 
     [Header("Input Modes")]
+    // Input modes for actions.
     public INPUT_MODE crouchMode = INPUT_MODE.TOGGLE;
     public INPUT_MODE sprintMode = INPUT_MODE.HOLD;
     public INPUT_MODE walkMode = INPUT_MODE.HOLD;
 
-    private bool isCrouching;
-    private bool isSprinting;
-    private bool isWalking;
+    // Movement and look directions.
+    private Vector2 _moveInput;
+    private Vector2 _lookInput;
 
-    private Vector2 moveInput;
-    private Vector2 lookInput;
-    private bool isJumping;
-    private bool IsGrounded => Physics.Raycast(transform.position, Vector3.down, 1.1f);
+    private bool _isJumping; // Indicates if the player is currently attempting to jump.
+
+    private bool IsGrounded => Physics.Raycast(transform.position, Vector3.down, 1.1f); // Checks if the player is touching the ground.
 
     public static bool LockCursor {
         get => Cursor.lockState == CursorLockMode.Locked;
@@ -62,8 +56,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Start() {
-        rb = GetComponent<Rigidbody>();
-        playerInput = GetComponent<PlayerInput>();
+        _rb = GetComponent<Rigidbody>();
+        _playerInput = GetComponent<PlayerInput>();
 
         LockCursor = true;
     }
@@ -78,10 +72,10 @@ public class PlayerController : MonoBehaviour
     }
 
     private void HandleJump() {
-        if (!isJumping) return;
+        if (!_isJumping) return;
 
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        isJumping = false;
+        _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        _isJumping = false;
     }
 
     private float GetSpeedMultiplier() {
@@ -95,33 +89,22 @@ public class PlayerController : MonoBehaviour
     }
 
     private void HandleMovement() {
-        Vector3 moveDirection = transform.forward * moveInput.y + transform.right * moveInput.x;
+        Vector3 moveDirection = transform.forward * _moveInput.y + transform.right * _moveInput.x;
         Vector3 movement = moveDirection.normalized * (moveSpeed * GetSpeedMultiplier());
-        rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
+        _rb.MovePosition(_rb.position + movement * Time.fixedDeltaTime);
     }
-
-
+    
     private void HandleLook() {
-        float lookX = lookInput.x * lookSensitivity;
-        float lookY = lookInput.y * lookSensitivity;
+        float lookX = _lookInput.x * lookSensitivity;
+        float lookY = _lookInput.y * lookSensitivity;
 
         transform.Rotate(Vector3.up * lookX);
-        playerInput.camera.transform.Rotate(Vector3.left * lookY);
+        _playerInput.camera.transform.Rotate(Vector3.left * lookY);
     }
 
-    private void OnMove(InputValue value) {
-        moveInput = value.Get<Vector2>();
-    }
-
-    private void OnLook(InputValue value) {
-        lookInput = value.Get<Vector2>();
-    }
-
-    private void OnJump(InputValue value) {
-        if (value.isPressed && IsGrounded) {
-            isJumping = true;
-        }
-    }
+    private void OnMove(InputValue value) => _moveInput = value.Get<Vector2>();
+    private void OnLook(InputValue value) => _lookInput = value.Get<Vector2>();
+    private void OnJump(InputValue value) => _isJumping = value.isPressed && IsGrounded;
 
     private void OnInteract(InputValue value) => HandleInteraction(value, PreInteract, PostInteract);
     private void OnInteractSecondary(InputValue value) => HandleInteraction(value, PreInteractSecondary, PostInteractSecondary);
