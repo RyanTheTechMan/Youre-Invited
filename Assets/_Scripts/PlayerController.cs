@@ -81,7 +81,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate() {
         HandleMovement();
         HandleJump();
-        Debug.Log("Grounded: " + IsGrounded);
     }
 
     private void Update() {
