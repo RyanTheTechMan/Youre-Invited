@@ -4,14 +4,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public enum MOVE_STATE {
-        SPRINTING,
-        RUNNING,
-        WALKING,
-        CROUCHING,
-        CRAWLING,
-        IDLE
-    }
+    /*
+     * Move states: Sprinting, Running, Walking, Crouching, Crawling, Idle
+     * Sprinting: Moving at max speed
+     * Running: Moving at normal speed
+     * Walking: Moving at half speed
+     * Crouching: Moving at 1/3 speed
+     * Crawling: Moving at 1/5 speed
+     * Idle: Not moving
+     */
+    public enum MOVE_STATE { SPRINTING, RUNNING, WALKING, CROUCHING, CRAWLING, IDLE }
 
     /*
      * Input modes: Toggle, Hold
@@ -22,10 +24,7 @@ public class PlayerController : MonoBehaviour
      * Toggle: Press once to start sprinting, press again to stop sprinting
      * Hold: Press and hold to sprint, release to stop sprinting
      */
-    public enum INPUT_MODE {
-        TOGGLE,
-        HOLD
-    }
+    public enum INPUT_MODE { TOGGLE, HOLD }
 
     private Rigidbody rb;
     private PlayerInput playerInput;
@@ -37,24 +36,24 @@ public class PlayerController : MonoBehaviour
 
     [Header("States & Events")]
     public MOVE_STATE moveState = MOVE_STATE.RUNNING;
-    public Func<bool> preInteract;
-    public Action postInteract;
-    public Func<bool> preInteractSecondary;
-    public Action postInteractSecondary;
-
-    private Vector2 moveInput;
-    private Vector2 lookInput;
-    private bool isJumping;
-    private bool IsGrounded => Physics.Raycast(transform.position, Vector3.down, 1.1f);
+    public Func<bool> PreInteract;
+    public Action PostInteract;
+    public Func<bool> PreInteractSecondary;
+    public Action PostInteractSecondary;
 
     [Header("Input Modes")]
     public INPUT_MODE crouchMode = INPUT_MODE.TOGGLE;
     public INPUT_MODE sprintMode = INPUT_MODE.HOLD;
     public INPUT_MODE walkMode = INPUT_MODE.HOLD;
 
-    private bool isCrouching = false;
-    private bool isSprinting = false;
-    private bool isWalking = false;
+    private bool isCrouching;
+    private bool isSprinting;
+    private bool isWalking;
+
+    private Vector2 moveInput;
+    private Vector2 lookInput;
+    private bool isJumping;
+    private bool IsGrounded => Physics.Raycast(transform.position, Vector3.down, 1.1f);
 
     public static bool LockCursor {
         get => Cursor.lockState == CursorLockMode.Locked;
@@ -86,10 +85,10 @@ public class PlayerController : MonoBehaviour
 
     private float GetSpeedMultiplier() {
         return moveState switch {
-            MOVE_STATE.SPRINTING => 1.5f,
-            MOVE_STATE.WALKING => 0.7f,
-            MOVE_STATE.CROUCHING => 0.5f,
-            MOVE_STATE.CRAWLING => 0.3f,
+            MOVE_STATE.SPRINTING => 2f,
+            MOVE_STATE.WALKING => 0.5f,
+            MOVE_STATE.CROUCHING => 0.33f,
+            MOVE_STATE.CRAWLING => 0.2f,
             _ => 1f
         };
     }
@@ -127,49 +126,58 @@ public class PlayerController : MonoBehaviour
     private void OnInteract(InputValue value) {
         if (value.isPressed) {
             bool passedPre = true;
-            foreach (Delegate func in preInteract.GetInvocationList()) {
+            foreach (Delegate func in PreInteract?.GetInvocationList() ?? Array.Empty<Delegate>()) {
                 Func<bool> action = (Func<bool>)func;
                 if (!action()) passedPre = false;
             }
-            if (passedPre) postInteract?.Invoke();
+            if (passedPre) PostInteract?.Invoke();
         }
     }
 
     private void OnInteractSecondary(InputValue value) {
         if (value.isPressed) {
             bool passedPre = true;
-            foreach (Delegate func in preInteractSecondary.GetInvocationList()) {
+            foreach (Delegate func in PreInteractSecondary?.GetInvocationList() ?? Array.Empty<Delegate>()) {
                 Func<bool> action = (Func<bool>)func;
                 if (!action()) passedPre = false;
             }
-            if (passedPre) postInteractSecondary?.Invoke();
+            if (passedPre) PostInteractSecondary?.Invoke();
         }
     }
 
     private void OnCrouch(InputValue value) {
-        if (value.isPressed) {
-            if (IsGrounded) moveState = MOVE_STATE.CROUCHING;
-        }
-        else {
-            moveState = MOVE_STATE.RUNNING;
+        switch (crouchMode) {
+            case INPUT_MODE.TOGGLE when value.isPressed:
+                isCrouching = !isCrouching;
+                moveState = isCrouching ? MOVE_STATE.CROUCHING : MOVE_STATE.RUNNING;
+                break;
+            case INPUT_MODE.HOLD:
+                moveState = value.isPressed && IsGrounded ? MOVE_STATE.CROUCHING : MOVE_STATE.RUNNING;
+                break;
         }
     }
 
     private void OnSprint(InputValue value) {
-        if (value.isPressed) {
-            moveState = MOVE_STATE.SPRINTING;
-        }
-        else {
-            moveState = MOVE_STATE.RUNNING;
+        switch (sprintMode) {
+            case INPUT_MODE.TOGGLE when value.isPressed:
+                isSprinting = !isSprinting;
+                moveState = isSprinting ? MOVE_STATE.SPRINTING : MOVE_STATE.RUNNING;
+                break;
+            case INPUT_MODE.HOLD:
+                moveState = value.isPressed ? MOVE_STATE.SPRINTING : MOVE_STATE.RUNNING;
+                break;
         }
     }
 
     private void OnWalk(InputValue value) {
-        if (value.isPressed) {
-            moveState = MOVE_STATE.WALKING;
-        }
-        else {
-            moveState = MOVE_STATE.RUNNING;
+        switch (walkMode) {
+            case INPUT_MODE.TOGGLE when value.isPressed:
+                isWalking = !isWalking;
+                moveState = isWalking ? MOVE_STATE.WALKING : MOVE_STATE.RUNNING;
+                break;
+            case INPUT_MODE.HOLD:
+                moveState = value.isPressed ? MOVE_STATE.WALKING : MOVE_STATE.RUNNING;
+                break;
         }
     }
 }
