@@ -3,8 +3,22 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(PlayerInput)), RequireComponent(typeof(Collider))]
 public class PlayerController : MonoBehaviour
 {
+
+    // Input System Setup:
+    // Add this script to the player object with a PlayerInput component attached.
+    // Create the following actions in the PlayerInput component:
+    // - Move (Vector2)
+    // - Look (Vector2)
+    // - Jump (Button)
+    // - Interact (Button)
+    // - InteractSecondary (Button)
+    // - Crouch (Button)
+    // - Sprint (Button)
+    // - Walk (Button)
+
     /*
      * Move states
      *
@@ -60,11 +74,14 @@ public class PlayerController : MonoBehaviour
         _playerInput = GetComponent<PlayerInput>();
 
         LockCursor = true;
+
+        if (_playerInput.camera == null) Debug.LogWarning("PlayerInput.camera is null. Please assign a camera to the PlayerInput component.");
     }
 
     private void FixedUpdate() {
         HandleMovement();
         HandleJump();
+        Debug.Log("Grounded: " + IsGrounded);
     }
 
     private void Update() {
@@ -93,7 +110,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = moveDirection.normalized * (moveSpeed * GetSpeedMultiplier());
         _rb.MovePosition(_rb.position + movement * Time.fixedDeltaTime);
     }
-    
+
     private void HandleLook() {
         float lookX = _lookInput.x * lookSensitivity;
         float lookY = _lookInput.y * lookSensitivity;
