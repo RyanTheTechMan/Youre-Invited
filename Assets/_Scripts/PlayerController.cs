@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -77,10 +78,10 @@ public class PlayerController : MonoBehaviour
     }
 
     private void HandleJump() {
-        if (isJumping) {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isJumping = false;
-        }
+        if (!isJumping) return;
+
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        isJumping = false;
     }
 
     private float GetSpeedMultiplier() {
@@ -94,9 +95,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private void HandleMovement() {
-        float speedMultiplier = GetSpeedMultiplier();
         Vector3 moveDirection = transform.forward * moveInput.y + transform.right * moveInput.x;
-        Vector3 movement = moveDirection.normalized * (moveSpeed * speedMultiplier);
+        Vector3 movement = moveDirection.normalized * (moveSpeed * GetSpeedMultiplier());
         rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
     }
 
@@ -123,61 +123,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnInteract(InputValue value) {
-        if (value.isPressed) {
-            bool passedPre = true;
-            foreach (Delegate func in PreInteract?.GetInvocationList() ?? Array.Empty<Delegate>()) {
-                Func<bool> action = (Func<bool>)func;
-                if (!action()) passedPre = false;
-            }
-            if (passedPre) PostInteract?.Invoke();
-        }
+    private void OnInteract(InputValue value) => HandleInteraction(value, PreInteract, PostInteract);
+    private void OnInteractSecondary(InputValue value) => HandleInteraction(value, PreInteractSecondary, PostInteractSecondary);
+
+    private void OnCrouch(InputValue value) => HandleModeAction(value, crouchMode, MOVE_STATE.CROUCHING);
+    private void OnSprint(InputValue value) => HandleModeAction(value, sprintMode, MOVE_STATE.SPRINTING);
+    private void OnWalk(InputValue value) => HandleModeAction(value, walkMode, MOVE_STATE.WALKING);
+
+    private void HandleInteraction(InputValue value, Func<bool> preCheck, Action action) {
+        if (!value.isPressed) return;
+        if (preCheck == null || preCheck.GetInvocationList().All(func => ((Func<bool>)func)()))
+            action?.Invoke();
     }
 
-    private void OnInteractSecondary(InputValue value) {
-        if (value.isPressed) {
-            bool passedPre = true;
-            foreach (Delegate func in PreInteractSecondary?.GetInvocationList() ?? Array.Empty<Delegate>()) {
-                Func<bool> action = (Func<bool>)func;
-                if (!action()) passedPre = false;
-            }
-            if (passedPre) PostInteractSecondary?.Invoke();
-        }
-    }
-
-    private void OnCrouch(InputValue value) {
-        switch (crouchMode) {
-            case INPUT_MODE.TOGGLE when value.isPressed:
-                isCrouching = !isCrouching;
-                moveState = isCrouching ? MOVE_STATE.CROUCHING : MOVE_STATE.RUNNING;
-                break;
-            case INPUT_MODE.HOLD:
-                moveState = value.isPressed && IsGrounded ? MOVE_STATE.CROUCHING : MOVE_STATE.RUNNING;
-                break;
-        }
-    }
-
-    private void OnSprint(InputValue value) {
-        switch (sprintMode) {
-            case INPUT_MODE.TOGGLE when value.isPressed:
-                isSprinting = !isSprinting;
-                moveState = isSprinting ? MOVE_STATE.SPRINTING : MOVE_STATE.RUNNING;
-                break;
-            case INPUT_MODE.HOLD:
-                moveState = value.isPressed ? MOVE_STATE.SPRINTING : MOVE_STATE.RUNNING;
-                break;
-        }
-    }
-
-    private void OnWalk(InputValue value) {
-        switch (walkMode) {
-            case INPUT_MODE.TOGGLE when value.isPressed:
-                isWalking = !isWalking;
-                moveState = isWalking ? MOVE_STATE.WALKING : MOVE_STATE.RUNNING;
-                break;
-            case INPUT_MODE.HOLD:
-                moveState = value.isPressed ? MOVE_STATE.WALKING : MOVE_STATE.RUNNING;
-                break;
-        }
+    private void HandleModeAction(InputValue value, INPUT_MODE mode, MOVE_STATE desiredState) {
+        moveState = mode switch {
+            INPUT_MODE.TOGGLE when value.isPressed => moveState == desiredState ? MOVE_STATE.RUNNING : desiredState,
+            INPUT_MODE.HOLD => value.isPressed ? desiredState : MOVE_STATE.RUNNING,
+            _ => moveState
+        };
     }
 }
