@@ -4853,137 +4853,137 @@ PrefabInstance:
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 0]'
-      value: 0.61091554
+      value: 0.7450162
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 1]'
-      value: 0.057422664
+      value: 0.07245752
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 2]'
-      value: -0.38676792
+      value: -0.43262833
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 3]'
-      value: -0.05977288
+      value: -0.056582212
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 4]'
-      value: 0.0042724777
+      value: 0.051208835
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 5]'
-      value: -0.030275606
+      value: -0.055405546
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 6]'
-      value: 0.014236975
+      value: 0.039905034
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 7]'
-      value: 0.021606479
+      value: 0.109717876
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 8]'
-      value: 0.013511713
+      value: 0.05134286
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 9]'
-      value: 0.2766814
+      value: 0.37986165
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[10]'
-      value: 0.049105756
+      value: 0.063854605
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[11]'
-      value: -0.12241279
+      value: -0.12095677
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[12]'
-      value: -0.012560945
+      value: -0.0056809844
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[13]'
-      value: 0.00448312
+      value: 0.042866755
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[14]'
-      value: -0.026235195
+      value: -0.05367176
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[15]'
-      value: 0.002348209
+      value: 0.008552085
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[16]'
-      value: -0.0014647738
+      value: 0.039025042
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[17]'
-      value: 0.00107254
+      value: 0.01611533
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[18]'
-      value: 0.2785095
+      value: 0.35812598
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[19]'
-      value: 0.050297692
+      value: 0.064981505
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[20]'
-      value: -0.1280778
+      value: -0.15088034
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[21]'
-      value: -0.016026651
+      value: -0.017421667
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[22]'
-      value: 0.0046912627
+      value: 0.035130043
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[23]'
-      value: -0.027450819
+      value: -0.062004294
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[24]'
-      value: 0.0029560525
+      value: 0.008605745
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[25]'
-      value: -0.0018106187
+      value: 0.025215866
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[26]'
-      value: 0.0014863521
+      value: 0.012996488
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
@@ -12534,33 +12534,33 @@ MonoBehaviour:
     m_Aspect: 0
   m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.08248899
-    'sh[ 1]': 0.002939424
-    'sh[ 2]': 0.03297954
-    'sh[ 3]': -0.011423257
-    'sh[ 4]': 0.00013365735
-    'sh[ 5]': -0.0042631538
-    'sh[ 6]': -0.00014060091
-    'sh[ 7]': -0.0015051534
-    'sh[ 8]': 0.0035339044
-    'sh[ 9]': 0.062078275
-    'sh[10]': 0.0028402356
-    'sh[11]': 0.026817352
-    'sh[12]': -0.009584
-    'sh[13]': 0.000059912356
-    'sh[14]': -0.0035020213
-    'sh[15]': -0.000006525868
-    'sh[16]': -0.0013649729
-    'sh[17]': 0.0029018975
-    'sh[18]': 0.05075979
-    'sh[19]': 0.00008115799
-    'sh[20]': 0.0250747
-    'sh[21]': -0.007976611
-    'sh[22]': 0.0003879411
-    'sh[23]': -0.003535315
-    'sh[24]': 0.000260016
-    'sh[25]': -0.0013861744
-    'sh[26]': 0.0020894746
+    'sh[ 0]': 0.0824323
+    'sh[ 1]': 0.0029334081
+    'sh[ 2]': 0.032909285
+    'sh[ 3]': -0.0114289075
+    'sh[ 4]': 0.00013264481
+    'sh[ 5]': -0.004267444
+    'sh[ 6]': -0.00014822981
+    'sh[ 7]': -0.0015075558
+    'sh[ 8]': 0.00353438
+    'sh[ 9]': 0.06203836
+    'sh[10]': 0.0028351562
+    'sh[11]': 0.026767423
+    'sh[12]': -0.009589649
+    'sh[13]': 0.000059256017
+    'sh[14]': -0.0035055927
+    'sh[15]': -0.000012023131
+    'sh[16]': -0.0013675517
+    'sh[17]': 0.0029022852
+    'sh[18]': 0.050731808
+    'sh[19]': 0.00007649417
+    'sh[20]': 0.025038369
+    'sh[21]': -0.007984093
+    'sh[22]': 0.0003873366
+    'sh[23]': -0.0035386782
+    'sh[24]': 0.00025582203
+    'sh[25]': -0.0013896596
+    'sh[26]': 0.002089924
   m_SHValidForCapturePosition: {x: 21.148026, y: 11.491001, z: -0.95000076}
   m_SHValidForSourcePosition: {x: 21.148026, y: 11.491001, z: -0.95000076}
   m_HDProbeVersion: 3
@@ -20834,7 +20834,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204144049721217099}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.97046375, z: -0, w: 0.24124688}
+  m_LocalRotation: {x: 0, y: -0.97046435, z: 0, w: 0.24124452}
   m_LocalPosition: {x: 26.25, y: 10.179, z: 0.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20913,137 +20913,137 @@ PrefabInstance:
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 0]'
-      value: 0.626741
+      value: 0.62356824
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 1]'
-      value: 0.06801327
+      value: 0.06865911
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 2]'
-      value: -0.38549545
+      value: -0.39836508
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 3]'
-      value: -0.061502796
+      value: -0.07152847
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 4]'
-      value: -0.0005119968
+      value: 0.0032973827
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 5]'
-      value: -0.027628135
+      value: -0.028398452
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 6]'
-      value: 0.013676957
+      value: 0.01612737
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 7]'
-      value: 0.024353068
+      value: 0.023238037
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 8]'
-      value: 0.017255334
+      value: 0.016373761
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[ 9]'
-      value: 0.29128197
+      value: 0.29235503
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[10]'
-      value: 0.0595034
+      value: 0.05917306
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[11]'
-      value: -0.12469875
+      value: -0.1343707
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[12]'
-      value: -0.013004622
+      value: -0.01814955
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[13]'
-      value: 0.001222709
+      value: 0.0032832136
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[14]'
-      value: -0.023776138
+      value: -0.025503136
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[15]'
-      value: 0.0018593544
+      value: 0.003904688
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[16]'
-      value: 0.0020183877
+      value: 0.0009819801
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[17]'
-      value: 0.0037736956
+      value: 0.003045958
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[18]'
-      value: 0.28693044
+      value: 0.293755
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[19]'
-      value: 0.05992599
+      value: 0.060852833
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[20]'
-      value: -0.13285905
+      value: -0.1420349
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[21]'
-      value: -0.014468688
+      value: -0.015685555
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[22]'
-      value: 0.0018680443
+      value: 0.0028978786
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[23]'
-      value: -0.025307957
+      value: -0.027166896
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[24]'
-      value: 0.0024904155
+      value: 0.0042171157
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[25]'
-      value: 0.002193953
+      value: 0.0012716788
       objectReference: {fileID: 0}
     - target: {fileID: 4380979736935578770, guid: c526a593402936c43a10c711bf472cdc,
         type: 3}
       propertyPath: 'm_SHForNormalization.sh[26]'
-      value: 0.0036091176
+      value: 0.0030087621
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21307,7 +21307,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 30
   field of view: 60
   orthographic: 0
   orthographic size: 5
